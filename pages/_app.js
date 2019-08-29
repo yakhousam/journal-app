@@ -1,5 +1,5 @@
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import UserContext from "../components/UserContext";
 
 
@@ -9,15 +9,15 @@ export default class MyApp extends App {
     user: null
   };
 
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+  // static async getInitialProps({ Component, ctx }) {
+  //   let pageProps = {};
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx);
+  //   }
    
-    return { pageProps };
-  }
+  //   return { pageProps };
+  // }
   setUser = user => {
     this.setState({ user });
   };
@@ -26,7 +26,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+     
         <UserContext.Provider
           value={{
             user: this.state.user,
@@ -35,7 +35,7 @@ export default class MyApp extends App {
         >
           <Component {...pageProps} />
         </UserContext.Provider>
-      </Container>
+    
     );
   }
 }

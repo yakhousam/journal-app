@@ -4,12 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server/index.js",
     "build": "next build",
-    "cross-env NODE_ENV=production node server/index.js",
-   "heroku-postbuild": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-},
+    "start": "cross-env NODE_ENV=production node server/index.js -p $PORT"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yakhousam/journal-app.git"
@@ -38,6 +36,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eslint": "^6.2.0",
     "eslint-plugin-react": "^7.14.3"
   }
